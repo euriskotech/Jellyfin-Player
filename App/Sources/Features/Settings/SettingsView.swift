@@ -7,6 +7,7 @@ struct SettingsView: View {
 
     var body: some View {
         @Bindable var settings = library.settings
+        @Bindable var playback = library.playback
 
         Form {
             Section {
@@ -29,6 +30,26 @@ struct SettingsView: View {
             }
 
             Section {
+                Picker("Audio language", selection: $playback.audioLanguage) {
+                    languageOptions(including: playback.audioLanguage)
+                }
+                Picker("Subtitles", selection: $playback.subtitleMode) {
+                    ForEach(SubtitleMode.allCases) { mode in
+                        Text(mode.title).tag(mode)
+                    }
+                }
+                if playback.subtitleMode != .off {
+                    Picker("Subtitle language", selection: $playback.subtitleLanguage) {
+                        languageOptions(including: playback.subtitleLanguage)
+                    }
+                }
+            } header: {
+                Text("Playback")
+            } footer: {
+                Text("\(playback.subtitleMode.explanation) These defaults are applied every time something plays, and you can still change tracks before pressing Play.")
+            }
+
+            Section {
                 ForEach(library.libraries) { item in
                     Toggle(item.name ?? "Library", isOn: visibility(of: item))
                 }
@@ -46,6 +67,14 @@ struct SettingsView: View {
         }
         .navigationTitle("Settings")
         .task { if library.libraries.isEmpty { try? await library.loadLibraries() } }
+    }
+
+    @ViewBuilder
+    private func languageOptions(including current: String) -> some View {
+        let codes = Languages.common.contains(current) ? Languages.common : [current] + Languages.common
+        ForEach(codes, id: \.self) { code in
+            Text(Languages.displayName(code)).tag(code)
+        }
     }
 
     private func visibility(of item: BaseItemDto) -> Binding<Bool> {

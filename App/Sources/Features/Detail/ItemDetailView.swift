@@ -14,7 +14,8 @@ struct ItemDetailView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 DetailHeader(item: item)
-                PlayButton(item: item).padding(.horizontal)
+                PlaySection(item: item, onPlaybackFinished: refresh)
+                    .padding(.horizontal)
 
                 if item.type == .episode, item.seriesID != nil {
                     NavigationLink(value: seriesStub) {
