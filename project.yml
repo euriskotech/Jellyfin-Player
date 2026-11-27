@@ -17,7 +17,7 @@ settings:
 packages:
   JellyfinAPI:
     url: https://github.com/jellyfin/jellyfin-sdk-swift
-    exactVersion: "3.3.1"   # 3.4.0 does not compile (JellyfinSocket.swift uses `any Error?`)
+    exactVersion: "3.3.0"   # 3.3.1 and 3.4.0 do not compile (JellyfinSocket.swift uses `any Error?`)
 
 targets:
   # iPhone + iPad
