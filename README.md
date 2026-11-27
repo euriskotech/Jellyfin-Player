@@ -7,7 +7,9 @@ A customisable Jellyfin client for iPhone, iPad and Apple TV, built with SwiftUI
 
 Steps 1 and 2 are in: connect to a server, pick a user (password or Quick Connect), stay signed in, and
 browse your library with Continue Watching, Next Up, Recently Added, library grids, collections, show and
-episode pages, and search. Playback is next.
+episode pages, and search. Playback uses Apple's own player, plays files directly when it can and
+asks the server to remux or transcode when it can't, and keeps Jellyfin's resume points and watched status
+in sync.
 
 Collections leave out films from libraries you've hidden on the device or excluded from "My Media" in
 Jellyfin, and can also hide anything tagged as 3D.
@@ -17,8 +19,8 @@ Coming next:
 1. ~~App skeleton, server sign-in, user picker, saved login~~
 2. ~~Library browsing: Continue Watching, Next Up, Recently Added, Movies, TV, Collections, search
    (collections only show items from libraries you've allowed)~~
-3. Playback: direct play with transcode fallback, resume and watched sync, subtitle and audio defaults
-   that stick
+3. ~~Playback: direct play with transcode fallback, resume and watched sync, subtitle and audio defaults
+   that stick~~
 4. Customisation: themes, accent colours, choose and reorder home rows
 
 ## Getting started
@@ -49,6 +51,11 @@ App/Resources               Asset catalog
 ```
 
 ## Notes
+
+- Subtitles: the app picks tracks from your defaults (Settings > Playback) every time something plays, tells
+  the server explicitly when subtitles are off, and turns off AVPlayer's automatic track choice so the file's
+  "default" flags and the system caption setting can't switch subtitles back on.
+- Picture-based subtitles (PGS, VobSub) are burned in by the server, since AVPlayer can't draw them.
 
 - Access tokens are stored in the Keychain. Server and user names are stored in UserDefaults.
 - Plain `http://` servers on the local network are allowed, since that's how most home servers run.

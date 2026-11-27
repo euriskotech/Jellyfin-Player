@@ -9,6 +9,7 @@ final class LibraryModel {
     let session: UserSession
     let service: LibraryService
     let settings: LibrarySettings
+    let playback: PlaybackPreferences
 
     private(set) var libraries: [BaseItemDto] = []
     private var excludedItemIDsCache: (libraries: Set<String>, ids: Set<String>)?
@@ -17,6 +18,7 @@ final class LibraryModel {
         self.session = session
         service = LibraryService(session: session)
         settings = LibrarySettings(accountID: session.account.id)
+        playback = PlaybackPreferences(accountID: session.account.id, configuration: session.user.configuration)
     }
 
     var client: JellyfinClient { session.client }

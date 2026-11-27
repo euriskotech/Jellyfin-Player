@@ -77,30 +77,3 @@ struct FactsLine: View {
             .foregroundStyle(.secondary)
     }
 }
-
-/// Play button placeholder. Playback arrives in step 3.
-struct PlayButton: View {
-    let item: BaseItemDto
-
-    private var title: String {
-        if let ticks = item.userData?.playbackPositionTicks, ticks > 0, !item.isPlayed {
-            let minutes = ticks / 600_000_000
-            return "Resume from \(minutes / 60 > 0 ? "\(minutes / 60)h " : "")\(minutes % 60)m"
-        }
-        return "Play"
-    }
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Button {} label: {
-                Label(title, systemImage: "play.fill")
-                    .frame(minWidth: 160)
-            }
-            .buttonStyle(.borderedProminent)
-            .disabled(true)
-            Text("Playback is coming in the next update.")
-                .font(.caption)
-                .foregroundStyle(.secondary)
-        }
-    }
-}
