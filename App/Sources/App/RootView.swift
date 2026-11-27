@@ -15,7 +15,7 @@ struct RootView: View {
                 UserPickerView(server: server)
                     .id(server.id)
             case let .signedIn(userSession):
-                HomeView(userSession: userSession)
+                MainView(userSession: userSession)
                     .id(userSession.account.id)
             }
         }

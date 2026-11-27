@@ -5,15 +5,18 @@ A customisable Jellyfin client for iPhone, iPad and Apple TV, built with SwiftUI
 
 ## Status
 
-Step 1 of the plan is in: connect to a server, pick a user (or sign in with a username or Quick Connect),
-and stay signed in between launches. Several household members can stay signed in on one device and switch
-between them.
+Steps 1 and 2 are in: connect to a server, pick a user (password or Quick Connect), stay signed in, and
+browse your library with Continue Watching, Next Up, Recently Added, library grids, collections, show and
+episode pages, and search. Playback is next.
+
+Collections leave out films from libraries you've hidden on the device or excluded from "My Media" in
+Jellyfin, and can also hide anything tagged as 3D.
 
 Coming next:
 
 1. ~~App skeleton, server sign-in, user picker, saved login~~
-2. Library browsing: Continue Watching, Next Up, Recently Added, Movies, TV, Collections, search
-   (collections only show items from libraries you've allowed)
+2. ~~Library browsing: Continue Watching, Next Up, Recently Added, Movies, TV, Collections, search
+   (collections only show items from libraries you've allowed)~~
 3. Playback: direct play with transcode fallback, resume and watched sync, subtitle and audio defaults
    that stick
 4. Customisation: themes, accent colours, choose and reorder home rows
