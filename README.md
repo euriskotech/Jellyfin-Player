@@ -20,7 +20,7 @@ Coming next:
 
 ## Getting started
 
-You need a Mac with Xcode 26 or later (the Jellyfin SDK needs Swift 6.2).
+You need a Mac with Xcode 26 or later (that is what CI builds with).
 
 ```sh
 brew install xcodegen      # once
