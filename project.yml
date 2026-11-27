@@ -33,6 +33,7 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.euriskotech.jellyfinplayer
         TARGETED_DEVICE_FAMILY: "1,2"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
     info:
       path: App/Info-iOS.plist
@@ -71,6 +72,8 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.euriskotech.jellyfinplayer
         TARGETED_DEVICE_FAMILY: "3"
+        # Apple TV needs a layered "App Icon & Top Shelf" brand asset; added later with the real artwork.
+        ASSETCATALOG_COMPILER_APPICON_NAME: ""
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
     info:
       path: App/Info-tvOS.plist
