@@ -5,7 +5,7 @@ A customisable Jellyfin client for iPhone, iPad and Apple TV, built with SwiftUI
 
 ## Status
 
-Steps 1 and 2 are in: connect to a server, pick a user (password or Quick Connect), stay signed in, and
+Steps 1 to 3 are in: connect to a server, pick a user (password or Quick Connect), stay signed in, and
 browse your library with Continue Watching, Next Up, Recently Added, library grids, collections, show and
 episode pages, and search. Playback uses Apple's own player, plays files directly when it can and
 asks the server to remux or transcode when it can't, and keeps Jellyfin's resume points and watched status
