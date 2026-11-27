@@ -82,7 +82,7 @@ struct LibraryService {
             }
         }
 
-        var order: [SortOrder] {
+        var order: [JellyfinAPI.SortOrder] {
             self == .name ? [.ascending] : [.descending, .ascending]
         }
     }
