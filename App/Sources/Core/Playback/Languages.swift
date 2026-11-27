@@ -22,7 +22,7 @@ enum Languages {
             code = String(code[..<dash])
         }
         if code.count == 2 {
-            return Locale.Language.LanguageCode(code).identifier(.alpha3) ?? code
+            return Locale.LanguageCode(code).identifier(.alpha3) ?? code
         }
         return bibliographicToTerminology[code] ?? code
     }
@@ -39,7 +39,7 @@ enum Languages {
 
     static func displayName(_ code: String) -> String {
         let normalised = normalise(code) ?? code
-        let twoLetter = Locale.Language.LanguageCode(normalised).identifier(.alpha2) ?? normalised
+        let twoLetter = Locale.LanguageCode(normalised).identifier(.alpha2) ?? normalised
         return Locale.current.localizedString(forLanguageCode: twoLetter)?.capitalized ?? code.uppercased()
     }
 }
